@@ -7,10 +7,10 @@
 // ------------------------------------------------------------------
 
 export const LINKS = {
-  github: "GITHUB_URL",
+  github: "https://github.com/hamed-rasouli",
   linkedin: "LINKEDIN_URL",
   upwork: "UPWORK_URL",
-  email: "EMAIL_ADDRESS",
+  email: "hamedrasouli2025@gmail.com",
   cv: "CV_URL",
 };
 
