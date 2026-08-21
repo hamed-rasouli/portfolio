@@ -42,7 +42,10 @@ export default function Preloader({ onDone }) {
           HAMED RASOULI
         </span>
         <div className="h-px w-36 overflow-hidden bg-line">
-          <div ref={lineRef} className="h-full w-full origin-left scale-x-0 bg-accent" />
+          <div
+            ref={lineRef}
+            className="h-full w-full origin-left scale-x-0 bg-accent"
+          />
         </div>
       </div>
     </div>
