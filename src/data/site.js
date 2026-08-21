@@ -38,12 +38,12 @@ export const SKILLS = [
 ];
 
 export const EXPERIENCE = [
-  {
-    company: "TechLife",
-    period: "2023 — 2024",
-    // Replace with your real title when you have it.
-    role: "YOUR_ROLE",
-    description:
-      "Worked with TechLife during 2023 and 2024. I'll describe my responsibilities here once I confirm the exact details.",
-  },
+  // {
+  //   company: "TechLife",
+  //   period: "2023 — 2024",
+  //   // Replace with your real title when you have it.
+  //   role: "YOUR_ROLE",
+  //   description:
+  //     "Worked with TechLife during 2023 and 2024. I'll describe my responsibilities here once I confirm the exact details.",
+  // },
 ];

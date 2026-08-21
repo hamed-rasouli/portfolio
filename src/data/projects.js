@@ -7,43 +7,48 @@
 // ------------------------------------------------------------------
 
 export const PROJECTS = [
+  // Gym Management System
   {
-    id: "toefl",
-    name: "TOEFL Preparation Tests",
-    tagline: "Desktop TOEFL prep application",
+    id: "gym",
+    name: "Gym Management System",
+    tagline: "Complete digital platform for modern gym management",
     description:
-      "A desktop application for practicing and taking TOEFL-style tests, with vocabulary and speaking practice built in.",
-    technologies: ["Python", "CustomTkinter", "SQLite"],
-    features: [
-      "Practice tests",
-      "Real test mode",
-      "Vocabulary library",
-      "Speaking tasks",
-      "Test management",
-      "Local database",
-      "Offline functionality",
+      "A full-featured gym management platform that centralizes members, trainers, memberships, payments, attendance, workout programs, diet plans, and daily operations in one responsive application.",
+    technologies: [
+      "React",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "PWA",
+      "Telegram Bot API",
     ],
-    github: "TOEFL_GITHUB_URL",
-    demo: null,
-  },
-  {
-    id: "inventory",
-    name: "Inventory Management System",
-    tagline: "Desktop inventory & business management",
-    description:
-      "A desktop application for managing products, invoices, warehouse operations, and financial records.",
-    technologies: ["Python", "CustomTkinter", "SQLite"],
     features: [
-      "Invoice registration",
-      "Inventory management",
-      "Warehouse management",
-      "Ledger",
-      "Invoice printing",
-      "Local database",
+      "Admin dashboard",
+      "Member management",
+      "Trainer management",
+      "Membership management",
+      "Membership plans",
+      "Automated membership-expiry notifications",
+      "Attendance tracking",
+      "Payment management",
+      "Workout program management",
+      "Personalized diet plans",
+      "Member progress tracking",
+      "Telegram bot integration",
+      "Workout and diet delivery through Telegram",
+      "Daily operational reports for the gym owner",
+      "7-day offline functionality",
+      "Installable PWA",
+      "Fully responsive design",
+      "English, Persian, and Pashto support",
     ],
-    github: "INVENTORY_GITHUB_URL",
-    demo: null,
+    github: "GYM_SYSTEM_GITHUB_URL",
+    demo: "https://afghangym.com",
+    demoText: "Afghan Gym"
   },
+  // tailor
+
+  // Course Management System
   {
     id: "course",
     name: "Course Management System",
@@ -65,26 +70,44 @@ export const PROJECTS = [
     github: "COURSE_SYSTEM_GITHUB_URL",
     demo: null,
   },
+  // TOEFL Preparation Tests
   {
-    id: "hotel",
-    name: "Hotel & Reservation Management System",
-    tagline: "Web-based hotel reservation management",
+    id: "toefl",
+    name: "TOEFL Preparation Tests",
+    tagline: "Desktop TOEFL prep application",
     description:
-      "A web-based system for managing hotel reservations and the operations that go with them.",
-    technologies: ["React", "Node.js", "Express.js", "MongoDB"],
-    features: [],
-    github: "HOTEL_GITHUB_URL",
-    demo: "HOTEL_LIVE_URL",
+      "A desktop application for practicing and taking TOEFL-style tests, with vocabulary and speaking practice built in.",
+    technologies: ["Python", "CustomTkinter", "SQLite"],
+    features: [
+      "Practice tests",
+      "Real test mode",
+      "Vocabulary library",
+      "Speaking tasks",
+      "Test management",
+      "Local database",
+      "Offline functionality",
+    ],
+
+    github: null,
+    demo: null,
   },
+  // Inventory Management System
   {
-    id: "ecommerce",
-    name: "E-Commerce Application",
-    tagline: "Full-stack e-commerce application",
+    id: "inventory",
+    name: "Inventory Management System",
+    tagline: "Desktop inventory & business management",
     description:
-      "A full-stack e-commerce application covering frontend, backend, database, authentication, and API integration.",
-    technologies: ["React", "Node.js", "Express.js", "MongoDB"],
-    features: [],
-    github: "ECOMMERCE_GITHUB_URL",
-    demo: "ECOMMERCE_LIVE_URL",
+      "A desktop application for managing products, invoices, warehouse operations, and financial records.",
+    technologies: ["Python", "CustomTkinter", "SQLite"],
+    features: [
+      "Invoice registration",
+      "Inventory management",
+      "Warehouse management",
+      "Ledger",
+      "Invoice printing",
+      "Local database",
+    ],
+    github: "INVENTORY_GITHUB_URL",
+    demo: null,
   },
 ];

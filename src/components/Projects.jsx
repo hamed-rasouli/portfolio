@@ -1,11 +1,28 @@
-import { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { gsap, prefersReducedMotion } from "../lib/gsap.js";
 import { PROJECTS } from "../data/projects.js";
-import { ArrowUpRightIcon } from "./Icons.jsx";
+import { ArrowRightIcon, ArrowUpRightIcon } from "./Icons.jsx";
 
 function ProjectItem({ project }) {
   const itemRef = useRef(null);
   const contentRef = useRef(null);
+  const [showAllFeatures, setShowAllFeatures] = useState(false);
+  const hasMoreFeatures = project.features.length > 10;
+  const featureToggle = (label) => (
+    <button
+      type="button"
+      aria-expanded={showAllFeatures}
+      onClick={() => setShowAllFeatures((isVisible) => !isVisible)}
+      className="feature-toggle group"
+    >
+      <span>{label}</span>
+      <ArrowRightIcon
+        className={`feature-toggle-icon h-3.5 w-3.5 ${
+          showAllFeatures ? "is-open" : ""
+        }`}
+      />
+    </button>
+  );
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -40,20 +57,55 @@ function ProjectItem({ project }) {
         </p>
 
         {project.features.length > 0 && (
-          <ul className="mt-5 grid max-w-md grid-cols-2 gap-x-6 gap-y-2">
-            {project.features.map((feature) => (
-              <li
-                key={feature}
-                className="flex items-center gap-2.5 text-sm text-muted"
+          <>
+            <ul className="mt-5 grid max-w-md grid-cols-2 gap-x-6 gap-y-2">
+              {project.features.slice(0, 10).map((feature) => (
+                <li
+                  key={feature}
+                  className="flex items-center gap-2.5 text-sm text-muted"
+                >
+                  <span
+                    aria-hidden="true"
+                    className="h-1 w-1 shrink-0 rounded-full bg-accent/70"
+                  />
+                  {feature}
+                </li>
+              ))}
+            </ul>
+
+            {hasMoreFeatures && !showAllFeatures && (
+              <div className="mt-4 flex max-w-md justify-center">
+                {featureToggle("More")}
+              </div>
+            )}
+
+            {hasMoreFeatures && (
+              <div
+                className={`feature-list-more ${showAllFeatures ? "is-open" : ""}`}
+                aria-hidden={!showAllFeatures}
               >
-                <span
-                  aria-hidden="true"
-                  className="h-1 w-1 shrink-0 rounded-full bg-accent/70"
-                />
-                {feature}
-              </li>
-            ))}
-          </ul>
+                <div>
+                  <ul className="grid max-w-md grid-cols-2 gap-x-6 gap-y-2 pt-2">
+                    {project.features.slice(10).map((feature) => (
+                      <li
+                        key={feature}
+                        className="flex items-center gap-2.5 text-sm text-muted"
+                      >
+                        <span
+                          aria-hidden="true"
+                          className="h-1 w-1 shrink-0 rounded-full bg-accent/70"
+                        />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-4 flex max-w-md justify-center">
+                    {featureToggle("Less")}
+                  </div>
+                </div>
+              </div>
+            )}
+          </>
         )}
 
         <div className="mt-6 flex flex-wrap gap-2">
@@ -65,14 +117,16 @@ function ProjectItem({ project }) {
         </div>
 
         <div className="mt-7 flex flex-wrap items-center gap-7">
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noreferrer"
-            className="link-line text-sm font-medium text-paper"
-          >
-            GitHub <ArrowUpRightIcon className="inline h-3.5 w-3.5" />
-          </a>
+          {project.gitgub && (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noreferrer"
+              className="link-line text-sm font-medium text-paper"
+            >
+              GitHub <ArrowUpRightIcon className="inline h-3.5 w-3.5" />
+            </a>
+          )}
           {project.demo && (
             <a
               href={project.demo}
@@ -80,7 +134,8 @@ function ProjectItem({ project }) {
               rel="noreferrer"
               className="link-line text-sm font-medium text-paper"
             >
-              Live Demo <ArrowUpRightIcon className="inline h-3.5 w-3.5" />
+              {project.demoText ? <> {project.demoText} </> : <> Live Demo </>}
+              <ArrowUpRightIcon className="inline h-3.5 w-3.5" />
             </a>
           )}
         </div>
