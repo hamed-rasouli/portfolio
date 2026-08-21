@@ -78,16 +78,23 @@ export default function Hero({ ready }) {
           socialRef.current,
           hintRef.current,
         ],
-        { autoAlpha: 1, y: 0 }
+        { autoAlpha: 1, y: 0 },
       );
       if (sceneRef.current) gsap.set(sceneRef.current, { autoAlpha: 1, y: 0 });
-      gsap.set(nameRef.current.querySelectorAll(".reveal-word"), { yPercent: 0 });
+      gsap.set(nameRef.current.querySelectorAll(".reveal-word"), {
+        yPercent: 0,
+      });
       return;
     }
 
     const tl = gsap.timeline({ defaults: { ease: "power3.out" }, delay: 0.1 });
 
-    tl.fromTo(bgRef.current, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.9 }, 0);
+    tl.fromTo(
+      bgRef.current,
+      { autoAlpha: 0 },
+      { autoAlpha: 1, duration: 0.9 },
+      0,
+    );
 
     if (sceneRef.current) {
       // 3D composition appears gently after the heading starts.
@@ -95,7 +102,7 @@ export default function Hero({ ready }) {
         sceneRef.current,
         { autoAlpha: 0, y: 30, scale: 0.97 },
         { autoAlpha: 1, y: 0, scale: 1, duration: 1.1, ease: "power2.out" },
-        0.3
+        0.3,
       );
     }
 
@@ -103,43 +110,43 @@ export default function Hero({ ready }) {
       eyebrowRef.current,
       { y: 18, autoAlpha: 0 },
       { y: 0, autoAlpha: 1, duration: 0.5 },
-      0.15
+      0.15,
     )
       .fromTo(
         nameRef.current.querySelectorAll(".reveal-word"),
         { yPercent: 120 },
         { yPercent: 0, duration: 1, ease: "power4.out", stagger: 0.12 },
-        0.22
+        0.22,
       )
       .fromTo(
         roleRef.current,
         { y: 24, autoAlpha: 0 },
         { y: 0, autoAlpha: 1, duration: 0.6 },
-        0.55
+        0.55,
       )
       .fromTo(
         descRef.current,
         { y: 24, autoAlpha: 0 },
         { y: 0, autoAlpha: 1, duration: 0.6 },
-        0.65
+        0.65,
       )
       .fromTo(
         ctaRef.current.children,
         { y: 22, autoAlpha: 0 },
         { y: 0, autoAlpha: 1, duration: 0.55, stagger: 0.09 },
-        0.78
+        0.78,
       )
       .fromTo(
         socialRef.current.children,
         { y: 14, autoAlpha: 0 },
         { y: 0, autoAlpha: 1, duration: 0.5, stagger: 0.06 },
-        0.92
+        0.92,
       )
       .fromTo(
         hintRef.current,
         { autoAlpha: 0 },
         { autoAlpha: 1, duration: 0.6 },
-        1.3
+        1.3,
       );
 
     return () => tl.kill();
@@ -170,7 +177,11 @@ export default function Hero({ ready }) {
   return (
     <section ref={sectionRef} id="home" className="relative overflow-x-hidden">
       {/* Soft studio background — gradients + glow, no grid/particles */}
-      <div ref={bgRef} aria-hidden="true" className="bg-hero-base absolute inset-0" />
+      <div
+        ref={bgRef}
+        aria-hidden="true"
+        className="bg-hero-base absolute inset-0"
+      />
       <div
         aria-hidden="true"
         className="absolute -right-40 -top-40 h-[36rem] w-[36rem] rounded-full bg-accent/[0.07] blur-3xl"
@@ -213,7 +224,10 @@ export default function Hero({ ready }) {
               Python and modern web technologies.
             </p>
 
-            <div ref={ctaRef} className="mt-10 flex flex-wrap items-center gap-4">
+            <div
+              ref={ctaRef}
+              className="mt-10 flex flex-wrap items-center gap-4"
+            >
               <Magnetic>
                 <a
                   href="#projects"
@@ -241,7 +255,10 @@ export default function Hero({ ready }) {
               </Magnetic>
             </div>
 
-            <ul ref={socialRef} className="mt-14 flex flex-wrap items-center gap-x-8 gap-y-4">
+            <ul
+              ref={socialRef}
+              className="mt-14 flex flex-wrap items-center gap-x-8 gap-y-4"
+            >
               {SOCIALS.map(({ label, href, Icon }) => (
                 <li key={label}>
                   <a
@@ -259,7 +276,7 @@ export default function Hero({ ready }) {
           </div>
 
           {/* Right — 3D composition */}
-          <div className="lg:col-span-6">
+          <div className="lg:col-span-6 max-lg:hidden">
             <div className="relative mx-auto h-[280px] max-w-md sm:h-[380px] md:h-[420px] lg:h-[540px] lg:max-w-none">
               {profile.enabled ? (
                 <div ref={scrollWrapRef} className="absolute inset-0">
