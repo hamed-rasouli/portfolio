@@ -1,6 +1,6 @@
 # Hamed Rasouli — Portfolio
 
-A personal developer portfolio built with **React**, **Vite**, and **Tailwind CSS** (v4).
+A personal developer portfolio built with **React**, **Vite**, **Tailwind CSS** (v4), **GSAP**, and a **Three.js** (React Three Fiber) hero background.
 
 ## Run locally
 
@@ -34,9 +34,36 @@ replace them.
 
 ```text
 src/
-├── components/       # Navbar, Hero, About, Skills, Projects, Experience, Learning, Contact, Footer + shared (Icons, Reveal, SectionHeading)
+├── components/       # Sections + shared (Cursor, Magnetic, Preloader, SplitText, SectionLabel, Icons, ProjectVisual)
 ├── data/             # projects.js, site.js
+├── lib/              # gsap.js (plugin registration + shared helpers)
 ├── App.jsx
 ├── main.jsx
-└── index.css         # Tailwind v4 entry + theme
+└── index.css         # Tailwind v4 entry + theme + design system
 ```
+
+## Motion notes
+
+- Animations use GSAP (`ScrollTrigger`, `ScrollToPlugin`) and respect
+  `prefers-reduced-motion` — under reduced motion, all entrance/scroll
+  animations are skipped and content is shown directly.
+- Magnetic buttons are desktop-only (`pointer: fine` and `hover: hover` media
+  queries) and are never enabled on touch devices. The native cursor is
+  always shown — there is no custom cursor overlay.
+- Each component creates its GSAP animations inside `gsap.context()` and
+  reverts them on unmount, so ScrollTriggers don't leak.
+
+## 3D hero background
+
+- The hero renders a layered particle network (background scatter, midground
+  clusters with distance-linked connections, foreground nodes) in
+  `src/components/three/HeroScene.jsx`. It is code-split and lazy-loaded, so
+  the Three.js bundle only downloads when the scene mounts.
+- Device capability is detected in `src/lib/quality.js`: the scene is skipped
+  entirely when WebGL is unavailable or reduced motion is preferred, and it
+  degrades to fewer particles/connections and DPR 1 on mobile and low-power
+  devices.
+- The scene fades in with the hero entrance timeline (GSAP), responds subtly
+  to the cursor on desktop, and fades out via ScrollTrigger as the hero
+  scrolls away. Pointer events stay disabled on the canvas, so content,
+  links, and buttons are never blocked.
