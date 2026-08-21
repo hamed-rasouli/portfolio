@@ -1,8 +1,10 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-display: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans:
+    "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display:
+    "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 
   --color-ink: #0d0d11;
@@ -74,13 +76,12 @@ body {
 
 /* soft studio gradient for the hero floor */
 @utility bg-hero-base {
-  background:
-    radial-gradient(
-      110% 85% at 50% -10%,
-      #16161f 0%,
-      #0d0d11 52%,
-      #0d0d11 100%
-    );
+  background: radial-gradient(
+    110% 85% at 50% -10%,
+    #16161f 0%,
+    #0d0d11 52%,
+    #0d0d11 100%
+  );
 }
 
 /* ---------- typography details ---------- */
@@ -133,7 +134,9 @@ body {
   letter-spacing: 0.01em;
   padding: 0.8rem 1.5rem;
   border-radius: 4px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
 }
 .btn-primary:hover {
   background: #9aa5ff;
