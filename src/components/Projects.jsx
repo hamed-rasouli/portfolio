@@ -20,7 +20,7 @@ function ProjectItem({ project }) {
           ease: "power3.out",
           stagger: 0.07,
           scrollTrigger: { trigger: itemRef.current, start: "top 80%" },
-        }
+        },
       );
     }, itemRef);
 
@@ -93,7 +93,7 @@ export default function Projects() {
   return (
     <section id="projects" className="relative scroll-mt-20 py-14 md:py-20">
       <div className="shell">
-        <div className="border-t border-line">
+        <div className="border-t border-line grid lg:grid-cols-2 lg:gap-2">
           {PROJECTS.map((project) => (
             <ProjectItem key={project.id} project={project} />
           ))}
