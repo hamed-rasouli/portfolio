@@ -47,9 +47,16 @@ function ProjectItem({ project }) {
   return (
     <article ref={itemRef} className="group/item border-b border-line py-8">
       <div ref={contentRef} className="max-w-2xl">
-        <h3 className="font-display text-3xl font-semibold tracking-tight text-paper transition-transform duration-500 group-hover/item:-translate-x-1 md:text-4xl">
-          {project.name}
-        </h3>
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+          <h3 className="font-display text-3xl font-semibold tracking-tight text-paper transition-transform duration-500 group-hover/item:-translate-x-1 md:text-4xl">
+            {project.name}
+          </h3>
+          <span
+            className={`project-status ${project.status === "Ongoing" ? "is-ongoing" : ""}`}
+          >
+            {project.status}
+          </span>
+        </div>
         <p className="mt-2 text-xs text-faint">{project.tagline}</p>
 
         <p className="mt-5 max-w-md text-[15px] leading-relaxed text-muted">

@@ -237,6 +237,21 @@ body {
   transform: translateY(-1px);
 }
 
+.project-status {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-faint);
+  padding: 0.28rem 0.55rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 3px;
+}
+.project-status.is-ongoing {
+  color: var(--color-accent);
+  border-color: rgba(125, 140, 255, 0.4);
+}
+
 /* ---------- hero scroll hint ---------- */
 
 @keyframes scroll-pulse {

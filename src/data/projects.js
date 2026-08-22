@@ -11,6 +11,7 @@ export const PROJECTS = [
   {
     id: "gym",
     name: "Gym Management System",
+    status: "Completed",
     tagline: "Complete digital platform for modern gym management",
     description:
       "A full-featured gym management platform that centralizes members, trainers, memberships, payments, attendance, workout programs, diet plans, and daily operations in one responsive application.",
@@ -44,36 +45,44 @@ export const PROJECTS = [
     ],
     github: "GYM_SYSTEM_GITHUB_URL",
     demo: "https://afghangym.com",
-    demoText: "Afghan Gym"
+    demoText: "Afghan Gym",
   },
   // tailor
 
-  // Course Management System
-  {
-    id: "course",
-    name: "Course Management System",
-    tagline: "Management platform for multi-branch institutions",
-    description:
-      "A web platform designed for educational institutions with multiple branches, centralizing administration in one place.",
-    technologies: ["React", "Node.js", "Express.js", "MongoDB"],
-    features: [
-      "Super Admin dashboard",
-      "Branch management",
-      "Student management",
-      "Teacher management",
-      "Class management",
-      "Payment management",
-      "Exams",
-      "Teacher attendance",
-      "Centralized administration",
-    ],
-    github: "COURSE_SYSTEM_GITHUB_URL",
-    demo: null,
-  },
+// Course Management System
+{
+  id: "course",
+  name: "Course Management System",
+  status: "Ongoing",
+  tagline: "Multi-branch education management platform",
+  description:
+    "A comprehensive education management platform that enables course owners to manage multiple branches, with each branch operating its own students, teachers, classes, finances, and academic activities while providing the owner with a centralized dashboard to monitor and compare all branches.",
+  technologies: ["React", "Node.js", "Express.js", "MongoDB"],
+  features: [
+    "Owner dashboard",
+    "Multi-branch management",
+    "Student portal",
+    "Teacher portal",
+    "Student management",
+    "Teacher management",
+    "Class management",
+    "Teacher attendance",
+    "Exam management",
+    "Financial management",
+    "Payment management",
+    "Branch-level administration",
+    "Centralized owner dashboard",
+    "Cross-branch analytics",
+    "Centralized monitoring of all branches",
+  ],
+  github: "COURSE_SYSTEM_GITHUB_URL",
+  demo: null,
+},
   // TOEFL Preparation Tests
   {
     id: "toefl",
     name: "TOEFL Preparation Tests",
+    status: "Completed",
     tagline: "Desktop TOEFL prep application",
     description:
       "A desktop application for practicing and taking TOEFL-style tests, with vocabulary and speaking practice built in.",
@@ -95,6 +104,7 @@ export const PROJECTS = [
   {
     id: "inventory",
     name: "Inventory Management System",
+    status: "Completed",
     tagline: "Desktop inventory & business management",
     description:
       "A desktop application for managing products, invoices, warehouse operations, and financial records.",
